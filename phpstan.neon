@@ -1,0 +1,9 @@
+includes:
+    - vendor/inviqa/phpstan-magento2/extension.neon
+    - .my127ws/application/static/phpstan.neon
+parameters:
+    level: max
+    paths:
+        - src
+    excludes_analyse:
+        - */src/**/registration.php

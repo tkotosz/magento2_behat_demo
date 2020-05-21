@@ -1,0 +1,7 @@
+
+workspace('magento2_behat_demo'):
+  description: generated local workspace for magento2_behat_demo.
+  harness: inviqa/magento2:v0.6.0
+
+attribute('magento.username'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoi/I36IgvM6qCZrHTqwwmbE5IvApADRS4IIjtpOjI7czo0ODoi8gEc+1+bNcP2Y6vWo4rTkWj8ANI0XZnqO0EWC/QhGV+2+YIM69jp3u2tlVY3r/7tIjt9")'
+attribute('magento.password'): '= decrypt("YTozOntpOjA7czo3OiJkZWZhdWx0IjtpOjE7czoyNDoiDgnMtq19C+a6ZHOOLxjYgkNCcYPTB8rUIjtpOjI7czo0ODoi+DTihG7j+dOZfPalwaF3LdbN3aoQdwdWYZlA4IQ5bW0O0XXvbvqhsneV/dSWzbarIjt9")'
