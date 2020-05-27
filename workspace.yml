@@ -1,5 +1,5 @@
 
-workspace('magento2_behat_demo'):
+workspace('magento2-behat-demo'):
   description: generated local workspace for magento2_behat_demo.
   harness: inviqa/magento2:v0.6.0
 

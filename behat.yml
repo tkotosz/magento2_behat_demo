@@ -1,56 +1,36 @@
 default:
   suites:
+#    application:
+#      paths:
+#        - features/application
+#      autowire: true
+#      contexts:
+#        - Inviqa\Acceptance\Context\EmailGeneratorContext
+#      services: '@bex.magento2_extension.service_container'
+
+    domain:
+        paths:
+            - features/application
+        contexts:
+            - Inviqa\Acceptance\Context\EmailGeneratorContext
+
+    endtoend:
+        autowire: true
+        paths:
+            - features/application
+        contexts:
+            - Inviqa\Acceptance\Context\EmailGeneratorEndToEndContext
+        services: '@bex.magento2_extension.service_container'
+
     application:
-      paths:
-        - features/application
-      autowire: true
-      contexts:
-        - Inviqa\Acceptance\Context\BehatConfigurationVerificationContext
-      services: '@bex.magento2_extension.service_container'
+        autowire: true
+        paths:
+            - features/application
+        contexts:
+            - Inviqa\Acceptance\Context\EmailGeneratorApplicationContext
+        services: '@bex.magento2_extension.service_container'
+        magento:
+            area: test
 
-    web_with_mink:
-      paths:
-        - features/web
-      contexts:
-        - Inviqa\Acceptance\Context\WebWithMinkContext
-
-    web_with_page_objects_first:
-      paths:
-        - features/web
-      contexts:
-        - Inviqa\Acceptance\Context\WebWithPageObjectsWithFactoryInjectionContext
-
-    web_with_page_objects_second:
-      paths:
-        - features/web
-      contexts:
-        - Inviqa\Acceptance\Context\WebWithPageObjectsWithConstructorInjectionContext
-  
   extensions:
     Bex\Behat\Magento2Extension: ~
-    Behat\MinkExtension:
-      base_url: 'https://magento2_behat_demo.my127.site'
-      default_session: goutte
-      javascript_session: chrome
-      sessions:
-        goutte:
-          goutte:
-            guzzle_parameters:
-              verify: false
-        chrome:
-          chrome:
-            api_url: "http://chrome:9222"
-            validate_certificate: false
-        local_chrome:
-          chrome:
-            api_url: "http://host.docker.internal:9222"
-    SensioLabs\Behat\PageObjectExtension:
-      namespaces:
-        page: [Inviqa\Acceptance\Page]
-    DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
-
-local: # (google-chrome-stable --remote-debugging-port=9221 &) && socat tcp-l:9222,fork TCP4:127.0.0.1:9221
-  extensions:
-    Behat\MinkExtension\ServiceContainer\MinkExtension:
-      default_session: local_chrome
-      javascript_session: local_chrome

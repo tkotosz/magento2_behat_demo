@@ -1,7 +1,7 @@
 pipeline {
     agent { label "my127ws" }
     environment {
-        MY127WS_KEY = credentials('magento2_behat_demo-my127ws-key')
+        MY127WS_KEY = credentials('magento2-behat-demo-my127ws-key')
         MY127WS_ENV = "pipeline"
     }
     triggers { cron(env.BRANCH_NAME == 'develop' ? 'H H(0-6) * * *' : '') }
